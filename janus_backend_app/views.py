@@ -7,6 +7,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from janus_backend_app.models import Vehicle
 from janus_backend_app.serializers import VehicleSerializer
+import requests
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -26,6 +27,39 @@ class GroupViewSet(viewsets.ModelViewSet):
 @csrf_exempt
 def vehicle_list(request):
     if request.method == 'GET':
+
+        
+
+        # url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
+
+        # headers = {
+        #     'authorization': "Bearer d1dd7a7c-9779-4b91-a270-1c11e256ed45",
+        #     'Accept': "application/json",
+        #     }
+
+        # response = requests.request("GET", url, headers=headers)
+
+        # url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
+
+        # headers = {
+        #     'authorization': "Bearer d1dd7a7c-9779-4b91-a270-1c11e256ed45",
+        #     'Accept': "application/json",
+        #     }
+
+        # response = requests.request("GET", url, headers=headers)
+
+        # url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
+
+        # headers = {
+        #     'authorization': "Bearer d1dd7a7c-9779-4b91-a270-1c11e256ed45",
+        #     'Accept': "application/json",
+        #     }
+
+        # response = requests.request("GET", url, headers=headers)
+        
+
+
+
         vehicles = Vehicle.objects.all()
         serializer = VehicleSerializer(vehicles, many=True)
         return JsonResponse(serializer.data, safe=False)
@@ -43,6 +77,7 @@ def vehicle_list(request):
 def vehicle_detail(request, vehicle_id):
     try:
         vehicle = Vehicle.objects.get(vehicle_id=vehicle_id)
+
     except Vehicle.DoesNotExist:
         return HttpResponse(status=404)
 
