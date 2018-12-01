@@ -12,4 +12,10 @@ class Vehicle(models.Model):
     vehicle_destination_latitude = models.CharField(max_length=500)
     vehicle_destination_longitude = models.CharField(max_length=500)
 
+class Location(models.Model):
+    lat = models.FloatField()
+    lon = models.FloatField()
+    name = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
+    location_type = models.CharField(max_length=500)
 
