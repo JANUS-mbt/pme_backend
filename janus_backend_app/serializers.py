@@ -18,4 +18,4 @@ class VehicleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vehicle
-        fields = ('vehicle_id', 'vehicle_name', 'vehicle_location_latitude', 'vehicle_location_longitude', 'vehicle_destination_latitude', 'vehicle_destination_longitude')
+        fields = ('vehicle_id', 'vehicle_name', 'vehicle_location_latitude', 'vehicle_location_longitude', 'vehicle_destination_latitude', 'vehicle_destination_longitude', 'vehicle_description')

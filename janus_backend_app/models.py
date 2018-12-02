@@ -9,5 +9,5 @@ class Vehicle(models.Model):
     vehicle_location_longitude = models.CharField(max_length=500)
     vehicle_destination_latitude = models.CharField(max_length=500)
     vehicle_destination_longitude = models.CharField(max_length=500)
-
+    vehicle_description = models.CharField(max_length=500)
 
