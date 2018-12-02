@@ -1,0 +1,20 @@
+{
+	"vehicle_id" : "34JANUS34",
+    "vehicle_name" : "JANUS",
+    "vehicle_location_latitude" : "41.095031",
+    "vehicle_location_longitude" : "28.625343",
+    "vehicle_destination_latitude" : "51.312202",
+    "vehicle_destination_longitude" : "12.555136"
+
+}
+
+{
+	"vehicle_id" : "34FMD34",
+    "vehicle_name" : "FMD",
+    "vehicle_location_latitude" : "41.065481",
+    "vehicle_location_longitude" : "28.400547",
+    "vehicle_destination_latitude" : "45.459677",
+    "vehicle_destination_longitude" : "9.310141"
+
+}
+

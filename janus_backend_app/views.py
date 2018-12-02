@@ -16,40 +16,40 @@ REFRESH_TOKEN = "8ffbce79-397d-4a3c-85f9-65025821d21e"
 
 
 
-def refresh_token():
-    url = "https://api.secure.mercedes-benz.com/oidc10/auth/oauth/v2/token"
+# def refresh_token():
+#     url = "https://api.secure.mercedes-benz.com/oidc10/auth/oauth/v2/token"
 
-    payload = f"grant_type=refresh_token&refresh_token={REFRESH_TOKEN}&undefined="
-    headers = {
-        'authorization': "Basic NGM0NmI1ZTctNTRiZi00YWNiLThhODYtZjFhYjMyMWIyY2I1OjZkM2YwZmVjLTM2ZjAtNDM1OS1iNTEzLTc4ZjViMTk0ODAzZA==",
-        'content-type': "application/x-www-form-urlencoded",
-    }
+#     payload = f"grant_type=refresh_token&refresh_token={REFRESH_TOKEN}&undefined="
+#     headers = {
+#         'authorization': "Basic NGM0NmI1ZTctNTRiZi00YWNiLThhODYtZjFhYjMyMWIyY2I1OjZkM2YwZmVjLTM2ZjAtNDM1OS1iNTEzLTc4ZjViMTk0ODAzZA==",
+#         'content-type': "application/x-www-form-urlencoded",
+#     }
 
-    response = requests.request("POST", url, data=payload, headers=headers)
-    response_json = response.json()
-    ACCESS_TOKEN[car_no] = response_json['access_token']
-    REFRESH_TOKEN[car_no] = response_json['refresh_token']
-    print(response.text)
+#     response = requests.request("POST", url, data=payload, headers=headers)
+#     response_json = response.json()
+#     ACCESS_TOKEN[car_no] = response_json['access_token']
+#     REFRESH_TOKEN[car_no] = response_json['refresh_token']
+#     print(response.text)
 
 
-def get_vehicle_from_api():
-    print(ACCESS_TOKEN)
-    print(REFRESH_TOKEN)
-    url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
+# def get_vehicle_from_api():
+#     print(ACCESS_TOKEN)
+#     print(REFRESH_TOKEN)
+#     url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
 
-    headers = {
-        'authorization': f"Bearer {ACCESS_TOKEN}",
-        'Accept': "application/json",
-    }
+#     headers = {
+#         'authorization': f"Bearer {ACCESS_TOKEN}",
+#         'Accept': "application/json",
+#     }
 
-    response = requests.request("GET", url, headers=headers)
-    print(response)
-    if response.status_code == 401:
-        print("access token is refreshing")
-        refresh_token()    
-    else:
-        print("access token still active")
-    print(response.json()[0]["id"])
+#     response = requests.request("GET", url, headers=headers)
+#     print(response)
+#     if response.status_code == 401:
+#         print("access token is refreshing")
+#         refresh_token()    
+#     else:
+#         print("access token still active")
+#     print(response.json()[0]["id"])
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -70,31 +70,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 def vehicle_list(request):
     if request.method == 'GET':
 
-        get_vehicle_from_api()
-
-        
-
-
-        # url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
-
-        # headers = {
-        #     'authorization': "Bearer d1dd7a7c-9779-4b91-a270-1c11e256ed45",
-        #     'Accept': "application/json",
-        #     }
-
-        # response = requests.request("GET", url, headers=headers)
-
-        # url = "https://api.mercedes-benz.com/experimental/connectedvehicle/v1/vehicles/"
-
-        # headers = {
-        #     'authorization': "Bearer d1dd7a7c-9779-4b91-a270-1c11e256ed45",
-        #     'Accept': "application/json",
-        #     }
-
-        # response = requests.request("GET", url, headers=headers)
-        
-
-
+        # get_vehicle_from_api()    
 
         vehicles = Vehicle.objects.all()
         serializer = VehicleSerializer(vehicles, many=True)
@@ -132,4 +108,3 @@ def vehicle_detail(request, vehicle_id):
     elif request.method == 'DELETE':
         vehicle.delete()
         return HttpResponse(status=204)
-
