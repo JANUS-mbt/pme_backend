@@ -11,27 +11,32 @@ Endpoint: Vehicles [GET] [POST]:
 http://18.202.176.0:8000/vehicles
 
   Example Response:
+  
+  ```json
   [{
-	  "vehicle_id" : "34ZRR34",
-    "vehicle_name" : "ZRR",
-    "vehicle_location_latitude" : "41.083030",
-    "vehicle_location_longitude" : "28.805453",
-    "vehicle_destination_latitude" : "49.639412",
-    "vehicle_destination_longitude" : "9.414035",
-    "vehicle_description" : "none"
+  	"vehicle_id" : "34ZRR34",
+    	"vehicle_name" : "ZRR",
+    	"vehicle_location_latitude" : "41.083030",
+    	"vehicle_location_longitude" : "28.805453",
+   	 "vehicle_destination_latitude" : "49.639412",
+   	 "vehicle_destination_longitude" : "9.414035",
+   	 "vehicle_description" : "none"
   }]
+  ```
 
 Endpoint: Vehicles/<vehicle_id > [GET] [PUT] [DELETE]
 http://18.202.176.0:8000/vehicles/<vehicle_id>
 
   Example Response:
+  ```json
   {
-	  "vehicle_id" : "34ZRR34",
-    "vehicle_name" : "ZRR",
-    "vehicle_location_latitude" : "41.083030",
-    "vehicle_location_longitude" : "28.805453",
-    "vehicle_destination_latitude" : "49.639412",
-    "vehicle_destination_longitude" : "9.414035",
-    "vehicle_description" : "none"
+  	"vehicle_id" : "34ZRR34",
+   	"vehicle_name" : "ZRR",
+    	"vehicle_location_latitude" : "41.083030",
+    	"vehicle_location_longitude" : "28.805453",
+    	"vehicle_destination_latitude" : "49.639412",
+    	"vehicle_destination_longitude" : "9.414035",
+    	"vehicle_description" : "none"
   }
+  ```
 
